@@ -26,7 +26,7 @@ function Body({ children, className }: ComponentProps<'div'>) {
   return (
     <div
       className={cn(
-        'bg-primary-100 border-primary-300 flex-grow rounded-xl border',
+        'bg-primary-100 border-primary-300 experiment-body min-h-0 flex-grow overflow-y-auto rounded-xl border',
         className
       )}
     >
