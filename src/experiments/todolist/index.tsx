@@ -1,6 +1,6 @@
 import { Experiment } from '../../components/experiment'
 
-export function TodoExperiment() {
+export function TodolistExperiment() {
   return (
     <Experiment>
       <Experiment.Heading>Todolist</Experiment.Heading>
