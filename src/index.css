@@ -7,20 +7,23 @@
 
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
 
-::-webkit-scrollbar-track {
+.experiment-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track, .experiment-body::-webkit-scrollbar-track {
   background: var(--color-primary-100);
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, .experiment-body::-webkit-scrollbar-thumb {
   background: var(--color-primary-400);
   border-radius: 5px;
   transition: all 0.3s ease-out;
 }
 
-::-webkit-scrollbar-thumb:hover {
+body::-webkit-scrollbar-thumb:hover, .experiment-body::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary-500);
 }
 
@@ -42,6 +45,7 @@ body {
   --color-primary-400: hsl(0, 0%, 14%);   /* Hover states #242424 */
   --color-primary-500: hsl(0, 0%, 18%);   /* Hover states #242424 */
   --color-primary-700: hsl(0, 0%, 75%);   /* Body text #bfbfbf */
+  --color-primary-800: hsl(0, 0%, 80%);   /* Body text #bfbfbf */
   --color-primary-900: hsl(0, 0%, 93%);   /* Headlines #ededed */
 
   /* Overlay Colors (with opacity) */
