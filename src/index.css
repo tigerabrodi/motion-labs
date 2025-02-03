@@ -5,6 +5,25 @@
   src: url('/assets/ninja.ttf') format('truetype');
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-400);
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-500);
+}
+
 html,
 body {
   height: 100%;
@@ -12,7 +31,7 @@ body {
 
 #root {
   min-height: 100dvh;
-  @apply bg-primary-100;
+  background-color: var(--color-primary-100);
 }
 
 @theme {
@@ -21,6 +40,7 @@ body {
   --color-primary-200: hsl(0, 0%, 7%);    /* Card background #121212 */
   --color-primary-300: hsl(0, 0%, 10%);   /* Elevated surfaces #1a1a1a */
   --color-primary-400: hsl(0, 0%, 14%);   /* Hover states #242424 */
+  --color-primary-500: hsl(0, 0%, 18%);   /* Hover states #242424 */
   --color-primary-700: hsl(0, 0%, 75%);   /* Body text #bfbfbf */
   --color-primary-900: hsl(0, 0%, 93%);   /* Headlines #ededed */
 
