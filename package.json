@@ -7,12 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.1",
     "@tailwindcss/vite": "^4.0.1",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.474.0",
     "motion": "^12.0.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
