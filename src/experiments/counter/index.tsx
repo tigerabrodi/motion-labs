@@ -9,7 +9,7 @@ export function CounterExperiment() {
 
   return (
     <Experiment>
-      <Experiment.Heading>Todolist</Experiment.Heading>
+      <Experiment.Heading>Counter</Experiment.Heading>
       <Experiment.Body>
         <motion.div
           className="flex min-h-full w-full items-center justify-center gap-4 p-4 lg:px-12 lg:py-8"
