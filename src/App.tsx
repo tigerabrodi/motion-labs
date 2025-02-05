@@ -1,7 +1,7 @@
 import { ExperimentsList } from './components/experiments-list'
 import { HeaderComp } from './components/header'
 
-const shouldShow = import.meta.env.VITE_SHOW_COMPONENTS as string
+const shouldShow = import.meta.env.VITE_SHOW_COMPONENTS as string | undefined
 
 function App() {
   return shouldShow ? (
