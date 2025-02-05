@@ -1,12 +1,12 @@
 import { ExperimentsList } from './components/experiments-list'
-import { Header } from './components/header'
+import { HeaderComp } from './components/header'
 
 const shouldShow = import.meta.env.VITE_SHOW_COMPONENTS as string
 
 function App() {
   return shouldShow ? (
     <main className="container mx-auto flex min-h-screen flex-col items-center">
-      <Header />
+      <HeaderComp />
       <ExperimentsList />
     </main>
   ) : (

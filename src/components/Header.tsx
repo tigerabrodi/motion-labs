@@ -1,6 +1,6 @@
 import { Konoha } from '../icons/konoha'
 
-export function Header() {
+export function HeaderComp() {
   return (
     <div className="flex w-full flex-col items-center gap-2 py-4 lg:flex-row lg:justify-between lg:py-16">
       <Konoha className="fill-accent-500 size-14" />
