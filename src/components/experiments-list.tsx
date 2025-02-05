@@ -1,5 +1,6 @@
 import { CounterExperiment } from '../experiments/counter'
 import { CreditCardExperiment } from '../experiments/credit-card'
+import { TabsExperiment } from '../experiments/tabs'
 import { TodolistExperiment } from '../experiments/todolist'
 import { VoiceMessagePlayExperiment } from '../experiments/voice-message-play'
 
@@ -10,6 +11,7 @@ export function ExperimentsList() {
       <VoiceMessagePlayExperiment />
       <CounterExperiment />
       <CreditCardExperiment />
+      <TabsExperiment />
     </div>
   )
 }
