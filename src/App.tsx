@@ -26,7 +26,7 @@ function Meta() {
         property="og:description"
         content="An open-source collection of beautiful Framer Motion animation experiments. Learn, explore, and use stunning animations in your projects."
       />
-      <meta property="og:image" content="/meta.png" />
+      <meta property="og:image" content="/assets/meta.png" />
       <meta property="og:url" content="https://motion-labs.dev" />
 
       {/* Twitter */}
@@ -39,7 +39,7 @@ function Meta() {
         name="twitter:description"
         content="An open-source collection of beautiful Framer Motion animation experiments. Learn, explore, and use stunning animations in your projects."
       />
-      <meta name="twitter:image" content="/meta.png" />
+      <meta name="twitter:image" content="/assets/meta.png" />
 
       {/* Additional Meta */}
       <meta name="theme-color" content="#FF8C00" />
