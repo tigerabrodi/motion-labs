@@ -18,6 +18,7 @@ export const HamburgerMenu = () => {
           stroke="currentColor"
           strokeWidth="3"
           strokeLinecap="round"
+          initial={false}
           animate={isOpen ? { d: 'M 10 10 L 30 30' } : { d: 'M 10 15 L 30 15' }}
           transition={{ duration: 0.3 }}
         />
@@ -26,6 +27,7 @@ export const HamburgerMenu = () => {
           stroke="currentColor"
           strokeWidth="3"
           strokeLinecap="round"
+          initial={false}
           animate={
             isOpen
               ? { d: 'M 10 30 L 30 10', opacity: 1 }
