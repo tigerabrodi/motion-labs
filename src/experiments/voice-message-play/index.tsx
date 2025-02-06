@@ -17,7 +17,7 @@ export function VoiceMessagePlayExperiment() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   useEffect(() => {
-    let interval: number | null = null
+    let interval: NodeJS.Timeout | null = null
 
     if (isPlaying && time > 0) {
       // This is the interval that will decrement the time by 1 second
