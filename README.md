@@ -22,3 +22,7 @@ pnpm dev
 - [Tabs](https://github.com/tigerabrodi/motion-labs/blob/main/src/experiments/tabs/index.tsx)
 - [Todolist](https://github.com/tigerabrodi/motion-labs/blob/main/src/experiments/todolist/index.tsx)
 - [Voice Message Play](https://github.com/tigerabrodi/motion-labs/blob/main/src/experiments/voice-message-play/index.tsx)
+
+# License
+
+MIT 💙
