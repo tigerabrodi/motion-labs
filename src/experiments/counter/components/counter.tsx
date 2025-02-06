@@ -4,6 +4,8 @@ import { AnimatePresence, motion, useSpring, useTransform } from 'motion/react'
 import { useEffect } from 'react'
 import { cn } from '../../../lib/utils'
 
+// TODO: handle negative numbers (or we could stop at 0)
+
 // These control the size of each digit displayed
 const DIGIT_FONT_SIZE = 56
 const DIGIT_PADDING_Y = 10
@@ -12,6 +14,8 @@ const DIGIT_HEIGHT = DIGIT_FONT_SIZE + DIGIT_PADDING_Y
 
 // We work with digits 0-9
 const TOTAL_DIGIT_POSITIONS = 10
+
+const SINGLE_DIGIT_PLACE = 1
 
 // If we need to move more than 5 positions down,
 // it's shorter to move up instead
@@ -29,7 +33,7 @@ export function Counter({ value, digitCssAnimationClassName }: CounterProps) {
 
   // Create array of place values (e.g. for 234: [100, 10, 1])
   const places = Array.from({ length: numberOfDigits }, (_, index) => {
-    // numberOfDigits - 1 - index because we want to start from the highest place
+    // numberOfDigits - 1 - index because we want to start from the highest place (for 234, it makes zero sense for 2 to be in the third place)
     // e.g. for 234:
     // first iteration: Math.pow(10, 3-1-0) -> 10^2 = 100
     // second iteration: Math.pow(10, 3-1-1) -> 10^1 = 10
@@ -39,7 +43,7 @@ export function Counter({ value, digitCssAnimationClassName }: CounterProps) {
 
   return (
     <motion.div
-      className="flex gap-3 overflow-hidden p-2 leading-none text-gray-900"
+      className="flex gap-3 overflow-hidden p-2 text-gray-900"
       style={{ fontSize: DIGIT_FONT_SIZE }}
       layout
     >
@@ -47,7 +51,13 @@ export function Counter({ value, digitCssAnimationClassName }: CounterProps) {
         {places.map((place) => (
           <motion.div
             key={place}
-            initial={{ opacity: 0, y: -20, filter: 'blur(10px)' }}
+            // This animates when a new place is added
+            // e.g. going from 9 to 10
+            initial={
+              place === SINGLE_DIGIT_PLACE
+                ? false
+                : { opacity: 0, y: -20, filter: 'blur(10px)' }
+            }
             animate={{
               opacity: 1,
               y: 0,
@@ -94,7 +104,7 @@ function Digit({ place, value, digitCssAnimationClassName }: DigitProps) {
   // Place 10: 23
   // Place 1: 234
   const animatedValue = useSpring(extractedDigit, {
-    damping: 23,
+    damping: 24,
     stiffness: 300,
   })
 
@@ -109,6 +119,8 @@ function Digit({ place, value, digitCssAnimationClassName }: DigitProps) {
         height: DIGIT_HEIGHT,
         padding: `${DIGIT_PADDING_Y}px ${DIGIT_PADDING_X}px`,
       }}
+      // Tabular nums ensures all numbers have the same width, see: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric#numeric-spacing-values
+      // width 1ch is to ensure same base width
       className={cn(
         'relative w-[1ch] rounded-xl tabular-nums',
         digitCssAnimationClassName
@@ -135,6 +147,10 @@ type NumberProps = {
 
 function Number({ currentAnimatedValue, digit }: NumberProps) {
   const yPosition = useTransform(currentAnimatedValue, (currentValue) => {
+    if (currentValue <= 0) {
+      currentValue = 0
+    }
+
     const newDigit = currentValue % TOTAL_DIGIT_POSITIONS
 
     // Calculate how many positions we need to move down
@@ -155,6 +171,7 @@ function Number({ currentAnimatedValue, digit }: NumberProps) {
     }
 
     // If we need to move more than 5 positions down,
+    // e.g. going from 1 to 9 (better to move up twice instead)
     // it's shorter to move UP instead
     const shouldMoveUpInsteadOfDown = downwardOffset > MOVEMENT_THRESHOLD
     if (shouldMoveUpInsteadOfDown) {
