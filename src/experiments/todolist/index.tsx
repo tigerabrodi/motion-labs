@@ -1,7 +1,7 @@
 import { Reorder } from 'motion/react'
 import { useState } from 'react'
 import { Experiment } from '../../components/experiment'
-import { Form } from './components/form'
+import { Form } from './components/todo-form'
 import { TodoItem } from './components/todo-item'
 
 export type Todo = {
