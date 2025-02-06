@@ -83,6 +83,14 @@ function CardItem({ card, onClick }: CardProps) {
   )
 }
 
+/**
+ * Cards
+ *
+ * The key thing to make this work nicely is to connect the elements via layoutId which is global.
+ *
+ * Docs: https://motion.dev/docs/react-layout-animations
+ *
+ */
 export function CardsExperiment() {
   const [selectedCard, setSelectedCard] = useState<Card | null>(null)
   const selectedCardRef = useRef<HTMLDivElement>(null)
