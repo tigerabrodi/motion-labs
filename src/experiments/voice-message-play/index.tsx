@@ -13,6 +13,7 @@ export type Todo = {
 export function VoiceMessagePlayExperiment() {
   const [isPlaying, setIsPlaying] = useState(false)
   // 1:59 in seconds
+  // In the real world, you'd typically keep track of the time in ms and convert it to seconds for display
   const [time, setTime] = useState(119)
   const [isExpanded, setIsExpanded] = useState(false)
 
@@ -64,6 +65,8 @@ export function VoiceMessagePlayExperiment() {
               duration: 0.5,
             }}
           >
+            {/* layout prop needed as the div will grow in size when playing the message */}
+            {/* We need it to grow smoothly */}
             <motion.div
               layout
               className="overflow-hidden"
@@ -74,6 +77,8 @@ export function VoiceMessagePlayExperiment() {
             >
               <div className="flex items-center gap-4 p-2">
                 <motion.div className="relative" layout>
+                  {/* If playing the message, we wnana show the profile imagewith pulse animations */}
+                  {/* In ./styles.css we have the pulse ring animation */}
                   <AnimatePresence mode="popLayout">
                     {isPlaying && (
                       <MotionConfig transition={{ delay: 0.1 }}>
