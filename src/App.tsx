@@ -1,17 +1,11 @@
 import { ExperimentsList } from './components/experiments-list'
 import { SiteHeader } from './components/site-header'
 
-const shouldShow = import.meta.env.VITE_SHOW_COMPONENTS as string | undefined
-
 function App() {
-  return shouldShow ? (
+  return (
     <main className="container mx-auto flex min-h-screen flex-col items-center">
       <SiteHeader />
       <ExperimentsList />
-    </main>
-  ) : (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="font-ninja text-accent-400 text-3xl">Coming soon</p>
     </main>
   )
 }
