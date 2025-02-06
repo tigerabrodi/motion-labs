@@ -16,7 +16,12 @@ export function CounterExperiment() {
           layout
         >
           <motion.button
-            onClick={() => setCount(count - 1)}
+            onClick={() => {
+              // Stop at 0 since we're not handling negative numbers
+              if (count > 0) {
+                setCount(count - 1)
+              }
+            }}
             className="rounded-lg p-2"
           >
             <Minus size={28} className="text-primary-100" />
