@@ -6,9 +6,26 @@ import FirstImg from './assets/1.png'
 import SecondImg from './assets/2.png'
 import ThirdImg from './assets/3.png'
 
+// At step 1: We've completed 0 spaces
+// At step 2: We've completed 1 space
+// At step 3: We've completed 2 spaces
+// 1 ---- 2 ---- 3
+//     ^      ^
+//     |      |
+//   These are the segments/spaces between the steps
+const calculateProgress = (currentStep: number, totalSteps: number) => {
+  // If 3 steps, we know there can only be 2 spaces between the steps
+  const spacesBetweenSteps = totalSteps - 1
+
+  const completedSpaces = currentStep - 1
+  return (completedSpaces / spacesBetweenSteps) * 100
+}
+
 type Step = 1 | 2 | 3
 
 const STEPS = [1, 2, 3] as const
+
+const TOTAL_STEPS = STEPS.length
 
 type Direction = 'forwards' | 'backwards'
 
@@ -133,7 +150,9 @@ export function MultiStepFormExperiment() {
               <motion.div
                 className="bg-accent-500 h-full rounded"
                 initial={{ width: '0%' }}
-                animate={{ width: `${((currentStep - 1) / 2) * 100}%` }}
+                animate={{
+                  width: `${calculateProgress(currentStep, TOTAL_STEPS)}%`,
+                }}
                 transition={{ type: 'spring', bounce: 0.2 }}
               />
             </div>
@@ -187,9 +206,8 @@ export function MultiStepFormExperiment() {
                   className="bg-primary-800 flex h-32 items-center justify-center rounded-lg"
                   transition={{
                     type: 'spring',
-                    damping: 26,
-                    stiffness: 240,
-                    duration: 0.5,
+                    damping: 27,
+                    stiffness: 250,
                   }}
                 >
                   <StepContent step={currentStep} />

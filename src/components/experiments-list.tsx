@@ -1,3 +1,4 @@
+import { CardsExperiment } from '../experiments/cards'
 import { CounterExperiment } from '../experiments/counter'
 import { CreditCardExperiment } from '../experiments/credit-card'
 import { InputButtonExperiment } from '../experiments/input-button'
@@ -16,6 +17,7 @@ export function ExperimentsList() {
       <TabsExperiment />
       <InputButtonExperiment />
       <MultiStepFormExperiment />
+      <CardsExperiment />
     </div>
   )
 }
