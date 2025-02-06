@@ -96,6 +96,14 @@ export const Tab = ({
   )
 }
 
+/**
+ * Tabs
+ *
+ * It uses the Reorder component to allow the user to reorder the tabs.
+ *
+ * To really learn how things work here, I recommend reading the docs on Reorder: https://motion.dev/docs/react-reorder
+ *
+ */
 export function TabsExperiment() {
   const [tabs, setTabs] = useState<Array<Tab>>([
     { label: 'Tab 1', id: 'tab-1' },
